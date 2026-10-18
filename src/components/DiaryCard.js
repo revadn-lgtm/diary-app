@@ -1,56 +1,83 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
+import { COLORS, SPACE, RADIUS, TYPO } from '../styles/tokens';
 
-export default function DiaryCard({ title, date, preview, moodUri }) {
+export default function DiaryCard({
+  title,
+  date,
+  preview,
+  moodUri,
+  variant = 'list',
+  onPress,
+}) {
+  const isGrid = variant === 'grid';
+
   return (
-    <View style={styles.card}>
-      <Image source={{ uri: moodUri }} style={styles.mood} />
-      <View style={styles.content}>
+    <Pressable
+      onPress={onPress}
+      style={({ pressed }) => [
+        styles.card,
+        isGrid ? styles.cardGrid : styles.cardList,
+        pressed && styles.pressed,
+      ]}
+    >
+      {moodUri ? (
+        <Image source={{ uri: moodUri }} style={styles.avatar} />
+      ) : null}
+      <View style={styles.textWrap}>
         <Text style={styles.title} numberOfLines={1}>
           {title}
         </Text>
         <Text style={styles.date}>{date}</Text>
-        <Text
-          style={styles.preview}
-          numberOfLines={3}
-          ellipsizeMode="tail"
-        >
+        <Text style={styles.preview} numberOfLines={2}>
           {preview}
         </Text>
       </View>
-    </View>
+    </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
   card: {
-    flexDirection: 'row',
-    gap: 12,
-    padding: 12,
+    backgroundColor: COLORS.surface,
+    borderColor: COLORS.border,
     borderWidth: 1,
-    borderColor: '#e5e7eb',
-    borderRadius: 12,
-    marginBottom: 12,
+    borderRadius: RADIUS.card,
+    padding: SPACE.m,
+    gap: SPACE.m,
   },
-  mood: {
-    width: 64,
-    height: 64,
-    borderRadius: 32,
+  cardList: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
-  content: {
+  cardGrid: {
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+  },
+  pressed: {
+    opacity: 0.8,
+  },
+  avatar: {
+    width: RADIUS.avatar,
+    height: RADIUS.avatar,
+    borderRadius: RADIUS.avatar / 2,
+    backgroundColor: '#E5E7EB',
+  },
+  textWrap: {
     flex: 1,
   },
   title: {
-    fontSize: 16,
-    fontWeight: '700',
+    fontSize: TYPO.title,
+    fontWeight: '600',
+    color: COLORS.text,
   },
   date: {
-    fontSize: 12,
-    color: '#6b7280',
-    marginBottom: 6,
+    fontSize: TYPO.caption,
+    color: COLORS.muted,
+    marginVertical: 2,
   },
   preview: {
-    fontSize: 14,
-    color: '#374151',
+    fontSize: TYPO.body,
+    color: COLORS.muted,
   },
 });
