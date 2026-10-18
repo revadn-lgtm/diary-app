@@ -50,10 +50,10 @@ Aplikasi catatan buku harian (Diary App) berbasis React Native & Expo untuk menc
 ## 📱 Tampilan Aplikasi update
 
 ### 1. Tampilan Utama
-![Tampilan Utama](./assets/screenshot-utam%20a.png)
+![Tampilan Utama](./assets/utamaku.png)
 
 ### 2. Tampilan Detail Modal
-![Modal Detail](./assets/screenshot-saatdiklik.png)
+![Modal Detail](./assets/detailmodal.png)
 
 ### 3. Tampilan Grid Mode
 ![Grid Mode](./assets/screenshot-modegrid.png)
