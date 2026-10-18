@@ -44,12 +44,17 @@ Aplikasi catatan buku harian (Diary App) berbasis React Native & Expo untuk menc
     npx expo start -c
    
 
-   ## Tampilan Aplikasi
+## Tampilan Aplikasi
 ![Tampilan Diary App](./assets/screenshot-app.png)
 
-![Tampilan Utama update](./assets/screenshot-utama.png)
+## 📱 Tampilan Aplikasi update
 
-![screenshoot modal diary](./assets/screenshot-saatdiklik.png)
+### 1. Tampilan Utama
+![Tampilan Utama](./assets/screenshot-utama.png)
 
-![screenshoot mode grid](./assets/screenshot-modegrid.png)
+### 2. Tampilan Detail Modal
+![Modal Detail](./assets/screenshot-saatdiklik.png)
+
+### 3. Tampilan Grid Mode
+![Grid Mode](./assets/screenshot-modegrid.png)
 
